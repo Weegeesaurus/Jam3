@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e614b54876d8aa64dac9aa9fb40204cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMaterial: {fileID: 2100000, guid: 6cc1177feca1a3e4084b6ad6a1455de1, type: 2}
+  outlineMaterial: {fileID: 2100000, guid: f5d067c7a29dd704e998f67e4384338c, type: 2}
   outlineThickness: -1.1
   outlineColor: {r: 0, g: 0, b: 0, a: 0}
   FlipOutline: 0
@@ -605,14 +605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49faf5ab09441541b5c7d1b7ff7362c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vision: {fileID: 0}
-  visible: 0
-  player: {fileID: 0}
-  maxFOV: 60
-  lookRadius: 8
-  cam: {fileID: 336584905}
-  objCollider: {fileID: 1979824178}
-  obj: {fileID: 706104891}
 --- !u!1 &787842564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1429,6 @@ MonoBehaviour:
   maxDistance: 0
   angel: {fileID: 1979824177}
   player: {fileID: 706104891}
-  agent: {fileID: 0}
   xmax: 0
   zmax: 0
   xmin: 0

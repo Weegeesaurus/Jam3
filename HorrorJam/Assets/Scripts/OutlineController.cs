@@ -9,8 +9,6 @@ public class OutlineController : MonoBehaviour
     public Color outlineColor;
     public bool FlipOutline;
     private Renderer render;
-    public GameObject outlineClone;
-
 
     // Start is called before the first frame update
     void Start()

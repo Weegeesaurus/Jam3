@@ -62,14 +62,14 @@ public class ObjectCollect : MonoBehaviour
             }
             if (gameObject.name.Equals("Food"))
             {
-                ObjectDeposit.collectFood = true;
+               ObjectDeposit.collectFood = true;
             }
             if (gameObject.name.Equals("Needle"))
             {
-                ObjectDeposit.collectNeedle = true;
+               ObjectDeposit.collectNeedle = true;
             }
 
-            //print("Collected " + gameObject.name);
+            print("Collected " + gameObject.name);
             Destroy(gameObject);
         }
     }
