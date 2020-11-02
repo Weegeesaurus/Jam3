@@ -33,7 +33,7 @@ public class AngelVisibilty : MonoBehaviour
         {
             //print("Miss!");
 
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 15f);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 25f);
             if (hitColliders.Length > 0)
             {
                 foreach (var hitCollider in hitColliders)

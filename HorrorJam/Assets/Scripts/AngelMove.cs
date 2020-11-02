@@ -27,10 +27,10 @@ public class AngelMove : MonoBehaviour
         time = 0;
         maxDistance = 3f;
 
-        xmax = 47;
-        zmax = 47;
-        xmin = 1;
-        zmin = 1;
+        xmax = 35;      // 35
+        zmax = 44;      // 44
+        xmin = -48;     // -48
+        zmin = -20;     // -20
 
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
@@ -44,26 +44,30 @@ public class AngelMove : MonoBehaviour
             //move = false;
 
             agent.destination = player.transform.position;
-            //print("Moving...");
+
+            if (angel.transform.position.x <= player.transform.position.x + 2 || angel.transform.position.x <= player.transform.position.x - 2)
+            {
+                if (angel.transform.position.z <= player.transform.position.z + 2 || angel.transform.position.z <= player.transform.position.z - 2)
+                {
+                    // Uncomment for build
+                    //WinLoss.gameLose = true;
+                }
+            }
+            print("Moving...");
         }
         else if (roam)
         {
-            roamTo = new Vector3(Random.Range(xmin, xmax), 1, Random.Range(zmin, zmax));
+            // timer set new roaming position
+            time = 10;
+
+            roamTo = new Vector3(Random.Range(xmin, xmax), angel.transform.position.y, Random.Range(zmin, zmax));
             agent.destination = roamTo;
-            //print("Roaming...");
+            print("Roaming...");
         }
         else
         {
             agent.destination = angel.transform.position;
-            //print("Freezing...");
-        }
-
-        if (angel.transform.position.x <= player.transform.position.x + 1 || angel.transform.position.x <= player.transform.position.x - 1)
-        {
-            if (angel.transform.position.z <= player.transform.position.z + 1 || angel.transform.position.z <= player.transform.position.z - 1)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+            print("Freezing...");
         }
     }
 }

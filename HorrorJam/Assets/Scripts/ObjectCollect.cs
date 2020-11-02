@@ -23,17 +23,54 @@ public class ObjectCollect : MonoBehaviour
                 if (hitCollider.gameObject.CompareTag("Player"))
                 {
                     canCollect = true;
-                    print("Player can Collect");
+                    //print("Player can Collect");
                 }
             }
         }
 
-        if (Input.GetKeyDown("r")) {
-            if (canCollect)
+        //if (Input.GetKeyDown("r")) {
+        //    if (canCollect)
+        //    {
+        //        if (gameObject.name.Equals("Key"))
+        //        {
+        //            ObjectDeposit.collectKey = true;
+        //            print("Collected Key!");
+        //        }
+        //        if (gameObject.name.Equals("Food"))
+        //        {
+        //            ObjectDeposit.collectFood = true;
+        //        }
+        //        if (gameObject.name.Equals("Needle"))
+        //        {
+        //            ObjectDeposit.collectNeedle = true;
+        //        }
+
+        //        //print("Collected " + gameObject.name);
+        //        Destroy(gameObject);
+        //    }
+        //}
+    }
+
+    public void PickUp()
+    {
+        if (canCollect)
+        {
+            if (gameObject.name.Equals("Key"))
             {
-                print("Collected!");
-                Destroy(gameObject);
+                ObjectDeposit.collectKey = true;
+                print("Collected Key!");
             }
+            if (gameObject.name.Equals("Food"))
+            {
+                ObjectDeposit.collectFood = true;
+            }
+            if (gameObject.name.Equals("Needle"))
+            {
+                ObjectDeposit.collectNeedle = true;
+            }
+
+            //print("Collected " + gameObject.name);
+            Destroy(gameObject);
         }
     }
 }
