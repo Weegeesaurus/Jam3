@@ -19,6 +19,9 @@ public class AngelMove : MonoBehaviour
     public int xmax, zmax, xmin, zmin;
     public Vector3 roamTo;
 
+    [SerializeField]
+    public int killRadius;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +48,14 @@ public class AngelMove : MonoBehaviour
 
             agent.destination = player.transform.position;
 
-            if (angel.transform.position.x <= player.transform.position.x + 2 || angel.transform.position.x <= player.transform.position.x - 2)
+            //if (angel.transform.position.x <= player.transform.position.x + killRadius || angel.transform.position.x >= player.transform.position.x - killRadius)
+            if (Vector3.Distance(angel.transform.position, player.transform.position) <= killRadius)
             {
-                if (angel.transform.position.z <= player.transform.position.z + 2 || angel.transform.position.z <= player.transform.position.z - 2)
-                {
+                //if (angel.transform.position.z <= player.transform.position.z + killRadius || angel.transform.position.z >= player.transform.position.z - killRadius)
+                //{
                     // Uncomment for build
-                    //WinLoss.gameLose = true;
-                }
+                    WinLoss.gameLose = true;
+                //}
             }
             print("Moving...");
         }

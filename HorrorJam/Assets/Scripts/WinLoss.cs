@@ -20,10 +20,12 @@ public class WinLoss : MonoBehaviour
     {
         if (gameWin)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("GameComplete");
         }
         if (gameLose)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("GameOver");
         }
     }

@@ -18,8 +18,18 @@ public class WaveManager : MonoBehaviour
     {
         if (TimeManager.instance.getMinute() >= timeLimit)
         {
-            //end game?
+            print("Test");
+
+            if (TimeManager.collected)
+            {
+                WinLoss.gameWin = true;
+            }
+            else
+            {
+                WinLoss.gameLose = true;
+            }
         }
+
     }
 
 }
