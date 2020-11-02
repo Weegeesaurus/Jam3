@@ -535,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a82c43b612bcfe44989de52bd8e42b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4244186b08fa4c1449e4819acc8fe862, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -832,11 +832,9 @@ MonoBehaviour:
     Secure the medicine
 
     Mind
-    the statues
+    your time
 
-    Keep a light on you
-
-'
+    They''re watching'
 --- !u!222 &1726277684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -958,8 +956,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -177.00002, y: 78}
-  m_SizeDelta: {x: 252.59991, y: 134.06393}
+  m_AnchoredPosition: {x: -177.00002, y: 72.51597}
+  m_SizeDelta: {x: 252.59991, y: 145.03198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845530398
 MonoBehaviour:
@@ -1003,9 +1001,9 @@ MonoBehaviour:
     S - Move
     Backward
 
-    R - Pick up Item
+    Left Click - Pick up Items
 
-    Mouse - Move Camera '
+    Mouse - Move Camera'
 --- !u!222 &1845530399
 CanvasRenderer:
   m_ObjectHideFlags: 0

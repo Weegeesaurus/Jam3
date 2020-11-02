@@ -10,7 +10,7 @@ public class AngelVisibilty : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerVision = GetComponent<Renderer>();
+        //playerVision = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
