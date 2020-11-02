@@ -71,6 +71,7 @@ public class AngelMove : MonoBehaviour
         else
         {
             agent.destination = angel.transform.position;
+            FindObjectOfType<AudioManager>().play("Enemy");
             //print("Freezing...");
         }
     }
