@@ -57,7 +57,7 @@ public class AngelMove : MonoBehaviour
                     WinLoss.gameLose = true;
                 //}
             }
-            print("Moving...");
+            //print("Moving...");
         }
         else if (roam)
         {
@@ -66,12 +66,12 @@ public class AngelMove : MonoBehaviour
 
             roamTo = new Vector3(Random.Range(xmin, xmax), angel.transform.position.y, Random.Range(zmin, zmax));
             agent.destination = roamTo;
-            print("Roaming...");
+            //print("Roaming...");
         }
         else
         {
             agent.destination = angel.transform.position;
-            print("Freezing...");
+            //print("Freezing...");
         }
     }
 }

@@ -35,6 +35,7 @@ public class ObjectCollect : MonoBehaviour
         {
             if (gameObject.name.Equals("Key"))
             {
+                print("Collected!");
                 CollectionManager.collectKey = true;
             }
             if (gameObject.name.Equals("Food"))

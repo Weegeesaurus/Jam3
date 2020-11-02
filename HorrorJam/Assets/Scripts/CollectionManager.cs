@@ -17,7 +17,6 @@ public class CollectionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canCollect = false;
 
         collectKey = false;
         collectFood = false;
@@ -31,10 +30,16 @@ public class CollectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print("Collect Key: " + collectKey);
+        //print("Collect Food: " + collectFood);
+        //print("Collect Needle: " + collectNeedle);
+
         if (collectKey && collectFood && collectNeedle)
         {
             // Uncomment for build
+            //Timer.collected = true;
             TimeManager.collected = true;
+            print("True!");
         }
     }
 }

@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
 
     void UpdateSec()
     {
+        //print(TimeManager.instance.getMinute());
         if (TimeManager.instance.getMinute() >= timeLimit)
         {
             print("Test");

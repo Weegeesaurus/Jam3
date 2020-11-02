@@ -13798,7 +13798,9 @@ GameObject:
   - component: {fileID: 486288892}
   - component: {fileID: 486288891}
   - component: {fileID: 486288890}
+  - component: {fileID: 486288894}
   - component: {fileID: 486288889}
+  - component: {fileID: 486288895}
   - component: {fileID: 486288893}
   m_Layer: 0
   m_Name: Manager
@@ -13870,6 +13872,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb51eb0ae1622344dad381f8593b3b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canCollect: 0
+--- !u!114 &486288894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486288888}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75a0e431e999544f996ac0a2597acc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 60
+--- !u!114 &486288895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486288888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6cf3d4f5b45ca428c45ca8bd9c5cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canCollect: 0
@@ -25182,7 +25210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &794729511
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -66523,7 +66551,7 @@ GameObject:
   - component: {fileID: 332288922278104406}
   - component: {fileID: 332288922278104405}
   m_Layer: 0
-  m_Name: Syringe_Body
+  m_Name: Needle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
