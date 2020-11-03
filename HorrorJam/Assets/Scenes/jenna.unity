@@ -2121,9 +2121,9 @@ GameObject:
   - component: {fileID: 69537049}
   - component: {fileID: 69537048}
   - component: {fileID: 69537047}
+  - component: {fileID: 69537044}
   - component: {fileID: 69537046}
   - component: {fileID: 69537045}
-  - component: {fileID: 69537044}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -2141,7 +2141,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 69537043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77900e42f2c578d49b3bbb824434dae1, type: 3}
+  m_Script: {fileID: 11500000, guid: c6edf225543ca174ebd29ffda897d61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerVision: {fileID: 2012281959}
@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 69537043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26be313687cb48c4093044374ea2e529, type: 3}
+  m_Script: {fileID: 11500000, guid: 7816d42e1dea1254ab01f55427829062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
@@ -2188,7 +2188,7 @@ MonoBehaviour:
   xmin: 0
   zmin: 0
   roamTo: {x: 0, y: 0, z: 0}
-  killRadius: 3
+  killRadius: 0
 --- !u!136 &69537047
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25571,7 +25571,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -38411,9 +38411,9 @@ GameObject:
   - component: {fileID: 1204179927}
   - component: {fileID: 1204179926}
   - component: {fileID: 1204179925}
+  - component: {fileID: 1204179922}
   - component: {fileID: 1204179924}
   - component: {fileID: 1204179923}
-  - component: {fileID: 1204179922}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -38431,7 +38431,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -38452,7 +38452,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1204179921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77900e42f2c578d49b3bbb824434dae1, type: 3}
+  m_Script: {fileID: 11500000, guid: f324b01a85c257c498c36ea934973d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerVision: {fileID: 493852541}
@@ -38466,7 +38466,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1204179921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26be313687cb48c4093044374ea2e529, type: 3}
+  m_Script: {fileID: 11500000, guid: 75ab34c8570e7f546be22c161791b4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
@@ -38478,7 +38478,7 @@ MonoBehaviour:
   xmin: 0
   zmin: 0
   roamTo: {x: 0, y: 0, z: 0}
-  killRadius: 3
+  killRadius: 0
 --- !u!136 &1204179925
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43819,6 +43819,27 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Enemy
+    clip: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
+    volume: 0.025
+    pitch: 1
+    spatialBlend: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Enemy1
+    clip: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
+    volume: 0.025
+    pitch: 1
+    spatialBlend: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Enemy2
+    clip: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
+    volume: 0.025
+    pitch: 1
+    spatialBlend: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Enemy3
     clip: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
     volume: 0.025
     pitch: 1
@@ -57299,9 +57320,9 @@ GameObject:
   - component: {fileID: 1848503221}
   - component: {fileID: 1848503220}
   - component: {fileID: 1848503219}
+  - component: {fileID: 1848503216}
   - component: {fileID: 1848503218}
   - component: {fileID: 1848503217}
-  - component: {fileID: 1848503216}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -57319,7 +57340,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -57340,7 +57361,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848503215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77900e42f2c578d49b3bbb824434dae1, type: 3}
+  m_Script: {fileID: 11500000, guid: 44311b30ddc436f4d974e94a6aafaff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerVision: {fileID: 584740568}
@@ -57354,7 +57375,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848503215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26be313687cb48c4093044374ea2e529, type: 3}
+  m_Script: {fileID: 11500000, guid: 17dcab66d71ea0147a852859007f0896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
@@ -57366,7 +57387,7 @@ MonoBehaviour:
   xmin: 0
   zmin: 0
   roamTo: {x: 0, y: 0, z: 0}
-  killRadius: 3
+  killRadius: 0
 --- !u!136 &1848503219
 CapsuleCollider:
   m_ObjectHideFlags: 0

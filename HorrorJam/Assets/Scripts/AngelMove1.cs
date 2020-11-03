@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-public class AngelMove : MonoBehaviour
+public class AngelMove1 : MonoBehaviour
 {
     public static bool move;
     public static bool roam;
@@ -73,7 +73,7 @@ public class AngelMove : MonoBehaviour
         else
         {
             agent.destination = angel.transform.position;
-            FindObjectOfType<AudioManager>().play("Enemy");
+            FindObjectOfType<AudioManager>().play("Enemy1");
             //print("Freezing...");
         }
     }
