@@ -5,6 +5,8 @@ using UnityEngine;
 public class ForesterManager : MonoBehaviour
 {
     public GameObject forester;
+    public Renderer foresterRend;
+    public float moveSpeed;
     public LaneManager[] lanes;
     public int laneSize;
     public int activeLane;
@@ -21,7 +23,7 @@ public class ForesterManager : MonoBehaviour
         forester.transform.position = newPos.position;
         forester.transform.rotation = newPos.rotation;
         inside = false;
-        Invoke("MoveForester", 10f);
+        Invoke("MoveForester", moveSpeed);
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class ForesterManager : MonoBehaviour
         if (currentPos<laneSize-2)
         {
             MoveForward();
-            Invoke("MoveForester", 10f);
+            Invoke("MoveForester", moveSpeed);
         }
         else
         {
@@ -47,7 +49,7 @@ public class ForesterManager : MonoBehaviour
                     lane.OpenLane();
                 }
 
-                Invoke("MoveForester", 10f);
+                Invoke("MoveForester", moveSpeed);
             }
             else
             {
