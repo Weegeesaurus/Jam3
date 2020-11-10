@@ -16,10 +16,21 @@ public class WaveManager : MonoBehaviour
 
     void UpdateSec()
     {
+        //print(TimeManager.instance.getMinute());
         if (TimeManager.instance.getMinute() >= timeLimit)
         {
-            //end game?
+            print("Test");
+
+            if (TimeManager.collected)
+            {
+                WinLoss.gameWin = true;
+            }
+            else
+            {
+                WinLoss.gameLose = true;
+            }
         }
+
     }
 
 }

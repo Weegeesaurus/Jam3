@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectCollect : MonoBehaviour
 {
-    public bool canCollect;
+    public static bool canCollect;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,31 @@ public class ObjectCollect : MonoBehaviour
                 }
             }
         }
+    }
 
-        //if (Input.GetKeyDown("r")) {
+    public void PickUp()
+    {
+        if (canCollect)
+        {
+            if (gameObject.name.Equals("Key"))
+            {
+                print("Collected!");
+                CollectionManager.collectKey = true;
+            }
+            if (gameObject.name.Equals("Food"))
+            {
+                CollectionManager.collectFood = true;
+            }
+            if (gameObject.name.Equals("Needle"))
+            {
+                CollectionManager.collectNeedle = true;
+            }
+
+            Destroy(gameObject);
+        }
+
+
+
         //    if (canCollect)
         //    {
         //        if (gameObject.name.Equals("Key"))
@@ -48,29 +71,5 @@ public class ObjectCollect : MonoBehaviour
         //        //print("Collected " + gameObject.name);
         //        Destroy(gameObject);
         //    }
-        //}
-    }
-
-    public void PickUp()
-    {
-        if (canCollect)
-        {
-            if (gameObject.name.Equals("Key"))
-            {
-                ObjectDeposit.collectKey = true;
-                print("Collected Key!");
-            }
-            if (gameObject.name.Equals("Food"))
-            {
-               ObjectDeposit.collectFood = true;
-            }
-            if (gameObject.name.Equals("Needle"))
-            {
-               ObjectDeposit.collectNeedle = true;
-            }
-
-            print("Collected " + gameObject.name);
-            Destroy(gameObject);
         }
     }
-}

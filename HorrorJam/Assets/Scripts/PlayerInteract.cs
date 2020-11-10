@@ -17,7 +17,7 @@ public class PlayerInteract : MonoBehaviour
         {
             GameObject obj = _hit.collider.gameObject;
 
-            Debug.Log("RaycastHit: " + _hit.collider);
+            //Debug.Log("RaycastHit: " + _hit.collider);
 
             if (current != obj)               //are we looking at something new?
             {

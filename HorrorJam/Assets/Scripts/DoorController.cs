@@ -10,8 +10,12 @@ public class DoorController : MonoBehaviour {
 	public bool open = false;
 	private float startingPos = 0;
 	private Quaternion target;
+
+    public AudioSource sound;
+
 	void Start()
 	{
+        sound = GetComponent<AudioSource>();
 		startingPos = transform.eulerAngles.y;
 	}
 	void FixedUpdate () 
@@ -37,6 +41,9 @@ public class DoorController : MonoBehaviour {
 	public void Open()
 	{
 		open = true;
+
+        FindObjectOfType<AudioManager>().play("Creek");
+
 	}
 
 	void OnDrawGizmos()

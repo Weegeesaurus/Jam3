@@ -12,6 +12,8 @@ public class TimeManager : MonoBehaviour
     public float timePassed;
     public float minPassed;
 
+    public static bool collected;
+
     private void Awake()    //setting up singleton
     {
         if (instance == null)
@@ -28,8 +30,9 @@ public class TimeManager : MonoBehaviour
     void Start()    //initialize
     {
         running = false;
-        elapsedTime = 0;  //7 am
+        elapsedTime = 0;
         StartTime();
+        collected = false;
     }
     public void StartTime() //begin time
     {
