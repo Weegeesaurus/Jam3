@@ -8,6 +8,8 @@ public class DoorController : MonoBehaviour {
 	public float openAngle = 90f;
 	public bool pivotClockwise = false;
 	public bool open = false;
+	public bool locked = false;
+	public int keyID;
 	private float startingPos = 0;
 	private Quaternion target;
 
@@ -40,10 +42,20 @@ public class DoorController : MonoBehaviour {
 	}
 	public void Open()
 	{
-		open = true;
-
-        FindObjectOfType<AudioManager>().play("Creek");
-
+		if (!locked)
+		{
+			open = !open;
+			FindObjectOfType<AudioManager>().play("Creek");
+		}
+		else
+        {
+			if (Inventory.CheckInventory(keyID))
+            {
+				locked = false;
+				open = !open;
+				FindObjectOfType<AudioManager>().play("Creek");
+			}
+        }
 	}
 
 	void OnDrawGizmos()
