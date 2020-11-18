@@ -46,6 +46,13 @@ public class OutlineController : MonoBehaviour
 
         outlineObj.GetComponent<OutlineController>().enabled = false;
         outlineObj.GetComponent<Collider>().enabled = false;
+
+        InteractionController temp = outlineObj.GetComponent<InteractionController>();
+        if (temp != null)
+        {
+            temp.enabled = false;
+        }
+
         return rend;
 
     }
