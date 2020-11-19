@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class LightFlicker : MonoBehaviour
@@ -16,21 +15,36 @@ public class LightFlicker : MonoBehaviour
     int seed;
     int roomSelection;
 
+    private float time;
+
     //Time the lights spend flickering
     [Range(0, 600)] [SerializeField] int flickerTime;
 
     //Light Arrays and an Array to List the Rooms
     Light[] roomLights;
     readonly string[] ROOMLIST = {"entryWay", "operatingRoom", "operating2", "checkIn", "medSupply", 
-        "upstairsOffice", "kitchen", "cafeteria", "showers", "lounge", "cellA", "cellB", "cellD", "cellE",
+        "upstairsOffice", "kitchen", "cafeteria", "showers", "cellA", "cellB", "cellE",
         "cellF", "cellG", "cellH", "pantry", "bathroom"};
 
     //Good ol' start function
     IEnumerator Start()
     {
+        time = 60;
         player = GameObject.FindGameObjectWithTag("Player");
         // Start function WaitAndPrint as a coroutine
         yield return StartCoroutine("FlickLight");
+    }
+
+    IEnumerator Update()
+    {
+        if (time <= 0)
+        {
+            yield return StartCoroutine("FlickLight");
+        }
+        else
+        {
+            time -= Time.deltaTime;
+        }
     }
 
     // A coroutine that will disable the lights after a fixed amount of time
@@ -41,29 +55,43 @@ public class LightFlicker : MonoBehaviour
         //Selects a random room
         RNGenie = new System.Random(SeedGenerator());
         roomSelection = RNGenie.Next(0, ROOMLIST.Length - 1);
-        Debug.Log(roomSelection);
-        targetRoom = GameObject.FindGameObjectWithTag(ROOMLIST[roomSelection]);        
+        Debug.Log(ROOMLIST[roomSelection]);
+        targetRoom = GameObject.Find(ROOMLIST[roomSelection]);        
 
         //Sets all the lights associated with that object into an array
         roomLights = targetRoom.GetComponentsInChildren<Light>();
 
-        //Finds a room with lights on then turns each of them off.
-        if (roomLights[0].intensity != 0)
+        if (time <= 0)
         {
-
-            while (Time.time < theTime + flickerTime)
+            //Finds a room with lights on then turns each of them off.
+            if (roomLights[0].enabled)
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(minFlick, maxFlick));
+
+                while (Time.time < theTime + flickerTime)
+                {
+                    yield return new WaitForSeconds(UnityEngine.Random.Range(minFlick, maxFlick));
+                    for (int i = 0; i < roomLights.Length; i++)
+                    {
+                        roomLights[i].enabled = !roomLights[i].enabled;
+                    }
+                }
+
                 for (int i = 0; i < roomLights.Length; i++)
                 {
-                    roomLights[i].enabled = !roomLights[i].enabled;
+                    roomLights[i].enabled = false;
                 }
+
+                time = 30;
+                Debug.Log("Recursion Called");
+                yield return FlickLight();
+
             }
-        }
-        else
-        {
-            Debug.Log("Recursion Called");
-            yield return FlickLight();
+            else
+            {
+                time = 30;
+                Debug.Log("Recursion Called");
+                yield return FlickLight();
+            }
         }
     }
 
@@ -80,13 +108,13 @@ private int SeedGenerator()
         curTime = DateTime.Now;
         z = player.transform.position.z;
 
-        seed = (int)math.floor(curTime.Millisecond / (Time.frameCount * Time.deltaTime));
+        seed = (int)Math.Floor(curTime.Millisecond / (Time.frameCount * Time.deltaTime));
         if (player.transform.position.z == 0)
         {
             z = player.transform.position.z + 1;
         }
 
-        seed = seed * (int)math.floor(Input.mousePosition.magnitude * (player.transform.position.x / z));
+        seed = seed * (int)Math.Floor(Input.mousePosition.magnitude * (player.transform.position.x / z));
         return seed;
     }
 }
