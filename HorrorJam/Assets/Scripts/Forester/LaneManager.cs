@@ -7,6 +7,7 @@ public class LaneManager : MonoBehaviour
     public Transform[] positions;
     public WindowCandle candle;
     public bool closed = false;
+    private int lighterID;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +36,15 @@ public class LaneManager : MonoBehaviour
     public bool IsClosed()
     {
         return closed;
+    }
+
+    public void ChangeLighterID(int id)
+    {
+        lighterID = id;
+    }
+
+    public int GetLighterID()
+    {
+        return lighterID;
     }
 }
