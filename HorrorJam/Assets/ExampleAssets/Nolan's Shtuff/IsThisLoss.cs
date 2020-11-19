@@ -9,6 +9,8 @@ public class IsThisLoss : MonoBehaviour
 
     int roomSelection;
     float waitTime;
+    int counter;
+    bool lightFinished;
 
     //Time the lights spend flickering
     [Range(0, 60)] [SerializeField] int flickerTime;
@@ -28,6 +30,9 @@ public class IsThisLoss : MonoBehaviour
     //Good ol' start function
     void Start()
     {
+        counter = 0;
+        lightFinished = false;
+        Debug.Log(ROOMLIST.Length);
         player = GameObject.FindGameObjectWithTag("Player");
         // Start function WaitAndPrint as a coroutine
         waitTime = firstFlick;
@@ -37,12 +42,11 @@ public class IsThisLoss : MonoBehaviour
     // A coroutine that will disable the lights after a fixed amount of time
     IEnumerator FlickLight()
     {
-        yield return new WaitForSeconds(waitTime);
         waitTime = repeatFlick;
         float theTime = Time.time;
 
         //Selects a random room
-        roomSelection = Random.Range(0, ROOMLIST.Length - 1);
+        roomSelection = Random.Range(0, ROOMLIST.Length);
         Debug.Log(ROOMLIST[roomSelection]);
         targetRoom = GameObject.Find(ROOMLIST[roomSelection]);
 
@@ -52,6 +56,7 @@ public class IsThisLoss : MonoBehaviour
         //Finds a room with lights on then turns each of them off.
         if (roomLights[0].enabled)
         {
+            yield return new WaitForSeconds(waitTime);
             while (Time.time < theTime + flickerTime)
             {
                 yield return new WaitForSeconds(Random.Range(minFlick, maxFlick));
@@ -64,12 +69,22 @@ public class IsThisLoss : MonoBehaviour
             {
                 roomLights[i].enabled = false;
             }
-            
+            counter++;
             yield return FlickLight();
         }
-        else
+        else if (counter < ROOMLIST.Length)
         {
             yield return FlickLight();
+        }
+        //else if (!lightFinished)
+        //{
+        //    string[] ROOMLIST = {"hallway"};
+        //    lightFinished = true;
+        //    yield return FlickLight();
+        //}
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
