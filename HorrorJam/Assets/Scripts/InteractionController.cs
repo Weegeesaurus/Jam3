@@ -9,6 +9,7 @@ public class InteractionController : MonoBehaviour
     public OutlineController outline;
     private Transform player;
     public float interactionDist = 2f;
+    public bool eKeyDisabled=false;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class InteractionController : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position)<=interactionDist)
         {
             outline.outline();
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !eKeyDisabled)
             {
                 Activate();
             }

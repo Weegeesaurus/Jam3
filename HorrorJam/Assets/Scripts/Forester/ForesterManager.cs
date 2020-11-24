@@ -12,6 +12,7 @@ public class ForesterManager : MonoBehaviour
     public int activeLane;
     public int currentPos;
     public bool inside;
+    public int lighterID;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,11 @@ public class ForesterManager : MonoBehaviour
         Transform newPos = lanes[activeLane].NextPos(currentPos);
         forester.transform.position = newPos.position;
         forester.transform.rotation = newPos.rotation;
+        foreach (LaneManager lane in lanes)
+        {
+            lane.ChangeLighterID(lighterID);
+        }
+
         inside = false;
         Invoke("MoveForester", moveSpeed);
     }
