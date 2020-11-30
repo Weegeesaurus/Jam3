@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: cf5641142baef5e43b2896b5f70134d1
+=======
+guid: aa723b44260e74040869a722c46a85c5
+>>>>>>> parent of c600aff... Merge remote-tracking branch 'origin/jennaFinal' into Cole
 timeCreated: 1472530753
 licenseType: Store
 ModelImporter:

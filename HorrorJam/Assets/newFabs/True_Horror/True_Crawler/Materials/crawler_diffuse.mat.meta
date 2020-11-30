@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:HorrorJam/Assets/gameAssets/HQ Tools Nails/Materials/nails_mat.mat.meta
 guid: cb5e48c6eea32cd4e93f181a1aed2677
 timeCreated: 1495981992
@@ -6,6 +7,10 @@ timeCreated: 1495981992
 guid: 4e32191c8d2c8d249b907c930b0fb0f8
 timeCreated: 1472530203
 >>>>>>> parent of c600aff... Merge remote-tracking branch 'origin/jennaFinal' into Cole:HorrorJam/Assets/newFabs/True_Horror/True_Crawler/Materials/crawler_diffuse.mat.meta
+=======
+guid: 4e32191c8d2c8d249b907c930b0fb0f8
+timeCreated: 1472530203
+>>>>>>> parent of c600aff... Merge remote-tracking branch 'origin/jennaFinal' into Cole
 licenseType: Store
 NativeFormatImporter:
   userData: 
