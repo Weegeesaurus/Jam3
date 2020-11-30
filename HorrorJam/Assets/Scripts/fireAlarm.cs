@@ -20,8 +20,19 @@ public class fireAlarm : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             alarmPulled = true;
+            print("activted");
+            
         }
-      
+        if (alarmPulled)
+        {
+            currentAngle = new Vector3(
+                Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime),
+                Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime),
+                Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime));
+            transform.eulerAngles = currentAngle;
+
+        }
+
     }
     public void triggerAlarm()
     {
