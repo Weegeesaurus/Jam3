@@ -10,6 +10,7 @@ public class EnemyStalkerController : MonoBehaviour
 	public float awareAI = 10f;
 	public float AIMoveSpeed;
 	public float damping = 6.0f;
+	public float deathDistance = 1.0f;
 
 	public Transform[] navPoint;
 	public UnityEngine.AI.NavMeshAgent agent;
@@ -53,6 +54,11 @@ public class EnemyStalkerController : MonoBehaviour
 				GotoNextPoint();
 		}
 
+		if (playerDistance < deathDistance)   //attacking, if it hits you???
+        {
+			//profit???
+        }
+
 
 		if (agent.remainingDistance < 0.5f)
 			GotoNextPoint();
@@ -62,6 +68,7 @@ public class EnemyStalkerController : MonoBehaviour
 	void LookAtPlayer()
 	{
         transform.LookAt(player);
+		//play sound???
 	}
 
 
@@ -77,6 +84,7 @@ public class EnemyStalkerController : MonoBehaviour
 	void Chase()
 	{
 		transform.Translate(Vector3.forward * AIMoveSpeed * Time.deltaTime);
+		//play sound??
 	}
 
 
