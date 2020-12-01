@@ -67,17 +67,17 @@ public class AngelControl : MonoBehaviour
         //print(playerVision.isVisible);
         //print(Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius);
         
-        if (playerVision.isVisible && hit.transform.tag == "Player" && Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius)
+        if (playerVision.isVisible && (hit.transform.tag == "Player" || hit.transform.tag == "door") && Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius)
         {
             roaming = false;
             agent.destination = angel.transform.position;
-            //print("Freezing...");
+            print("Freezing...");
         }
         else
         {
-            if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && hit.transform.tag == "Player")
+            if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && (hit.transform.tag == "Player" || hit.transform.tag == "door"))
             {
-                //print("Following...");
+                print("Following...");
                 roaming = false;
                 agent.destination = player.transform.position;
                 //print("Destination: " + agent.destination);
@@ -85,7 +85,7 @@ public class AngelControl : MonoBehaviour
             else
             {
 
-                //print("Roaming...");
+                print("Roaming...");
                 roaming = true;
             }
 
