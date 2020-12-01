@@ -79,6 +79,8 @@ public class IsThisLoss : MonoBehaviour
                 if (i.isTrigger)
                 {
                     i.enabled = true;
+                    yield return new WaitForSeconds(0.5f);
+                    i.enabled = false;
                 }
             }
             //Recursively calls the coroutine again to turn off the next light
