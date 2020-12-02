@@ -76,7 +76,7 @@ public class CrawlerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(crawler.transform.position, player.transform.position) <= followRadius)
+        if (Vector3.Distance(crawler.transform.position, player.transform.position) <= followRadius && !FireAlarmManager.alarmOn)
         {
             if (playerMoving)
             {

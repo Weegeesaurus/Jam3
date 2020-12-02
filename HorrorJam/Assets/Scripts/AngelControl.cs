@@ -19,6 +19,8 @@ public class AngelControl : MonoBehaviour
     public int followRadius;
     public int visionRadius;
 
+    public AudioSource angelSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,7 @@ public class AngelControl : MonoBehaviour
         {
             roaming = false;
             agent.destination = angel.transform.position;
+            angelSound.mute = true;
             //print("Freezing...");
         }
         else
@@ -80,6 +83,7 @@ public class AngelControl : MonoBehaviour
                 //print("Following...");
                 roaming = false;
                 agent.destination = player.transform.position;
+                angelSound.mute = false;
                 //print("Destination: " + agent.destination);
             }
             else
@@ -87,6 +91,7 @@ public class AngelControl : MonoBehaviour
 
                 //print("Roaming...");
                 roaming = true;
+                angelSound.mute = false;
             }
 
         }

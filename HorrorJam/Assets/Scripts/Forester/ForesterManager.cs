@@ -59,6 +59,9 @@ public class ForesterManager : MonoBehaviour
                     stalkerList[stalkerAmount].SetActive(true);
                     stalkerAmount++;
 
+                    AudioPlay.PlaySound(0, newPos, 60);
+
+
                     if (stalkerAmount < stalkerList.Length) 
                     {
                         Invoke("Respawn", respawnTime);

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2781541783609145765}
   - component: {fileID: 8237219405781424846}
   - component: {fileID: 6687550783439904492}
+  - component: {fileID: 2264187065329083184}
+  - component: {fileID: 2364431237051432551}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -95,6 +97,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2264187065329083184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132697757421273743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e614b54876d8aa64dac9aa9fb40204cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: f5d067c7a29dd704e998f67e4384338c, type: 2}
+  outlineThickness: -1.1
+  outlineColor: {r: 0.5294118, g: 0.09803922, b: 0.0627451, a: 0}
+  FlipOutline: 0
+--- !u!114 &2364431237051432551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132697757421273743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d36edaf3df9b1342bc11d412608d1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+    m_PersistentCalls:
+      m_Calls: []
+  outline: {fileID: 2264187065329083184}
+  interactionDist: 2
+  eKeyDisabled: 0
 --- !u!1 &457519887138952724
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,9 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2570436326538379331}
-  - component: {fileID: 2656791100102614379}
-  - component: {fileID: 2870862331062304821}
-  - component: {fileID: 3495673612114694559}
+  - component: {fileID: 6363093048561535364}
   m_Layer: 0
   m_Name: handle
   m_TagString: Untagged
@@ -510,7 +544,7 @@ Transform:
   m_Father: {fileID: 8399498365908113136}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2656791100102614379
+--- !u!114 &6363093048561535364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,51 +557,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmPulled: 0
---- !u!114 &2870862331062304821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907795139696381762}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e614b54876d8aa64dac9aa9fb40204cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMaterial: {fileID: 2100000, guid: f5d067c7a29dd704e998f67e4384338c, type: 2}
-  outlineThickness: -1.1
-  outlineColor: {r: 1, g: 1, b: 1, a: 0}
-  FlipOutline: 0
---- !u!114 &3495673612114694559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907795139696381762}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d36edaf3df9b1342bc11d412608d1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2656791100102614379}
-        m_TargetAssemblyTypeName: fireAlarm, Assembly-CSharp
-        m_MethodName: triggerAlarm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  outline: {fileID: 2870862331062304821}
-  interactionDist: 2
 --- !u!1 &947537066701237002
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +652,8 @@ GameObject:
   - component: {fileID: 5102925322213784263}
   - component: {fileID: 4705692605144416050}
   - component: {fileID: 6346366962503203111}
+  - component: {fileID: 458149421693455172}
+  - component: {fileID: 936564864968738385}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -746,6 +737,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &458149421693455172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272445794240746084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d36edaf3df9b1342bc11d412608d1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6363093048561535364}
+        m_TargetAssemblyTypeName: fireAlarm, Assembly-CSharp
+        m_MethodName: triggerAlarm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  outline: {fileID: 936564864968738385}
+  interactionDist: 2
+  eKeyDisabled: 0
+--- !u!114 &936564864968738385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272445794240746084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e614b54876d8aa64dac9aa9fb40204cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: f5d067c7a29dd704e998f67e4384338c, type: 2}
+  outlineThickness: -1.1
+  outlineColor: {r: 0.5294118, g: 0.09803922, b: 0.0627451, a: 0}
+  FlipOutline: 0
 --- !u!1 &1521088498695791399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2078,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59f878a442504534381564ccf1623114, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2136,7 +2173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59f878a442504534381564ccf1623114, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2231,7 +2268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59f878a442504534381564ccf1623114, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
