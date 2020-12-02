@@ -57,6 +57,7 @@ public class CameraMovement : MonoBehaviour
                 winScreen.SetActive(false);
                 titleScreen.SetActive(true);
                 Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
                 break;
 
             case 4://Toggles Win Screen
@@ -127,5 +128,6 @@ public class CameraMovement : MonoBehaviour
     {
         screenToggle = 1;
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

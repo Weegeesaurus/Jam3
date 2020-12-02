@@ -67,7 +67,15 @@ public class IsThisLoss : MonoBehaviour
                 yield return new WaitForSeconds(Random.Range(minFlick, maxFlick));
                 for (int i = 0; i < roomLights.Length; i++)
                 {
-                    roomLights[i].intensity = Random.Range(0.0f, 10.0f);
+                    int newRand = Random.Range(0, 1);
+                    if (newRand == 0)
+                    {
+                        roomLights[i].intensity = Random.Range(0f, 2f);
+                    }
+                    else
+                    {
+                        roomLights[i].intensity = Random.Range(4f, 5f);
+                    }
                 }
             }
 
