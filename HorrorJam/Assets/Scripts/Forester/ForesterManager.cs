@@ -5,7 +5,7 @@ using UnityEngine;
 public class ForesterManager : MonoBehaviour
 {
     public GameObject forester;
-    public Renderer foresterRend;
+    public GameObject[] stalkerList;
     public float moveSpeed;
     public LaneManager[] lanes;
     public int laneSize;
@@ -13,20 +13,15 @@ public class ForesterManager : MonoBehaviour
     public int currentPos;
     public bool inside;
     public int lighterID;
+    public float respawnTime;
+
+    private int stalkerAmount=0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        activeLane = Random.Range(0, lanes.Length);
-        currentPos = 0;
-        Transform newPos = lanes[activeLane].NextPos(currentPos);
-        forester.transform.position = newPos.position;
-        forester.transform.rotation = newPos.rotation;
-        foreach (LaneManager lane in lanes)
-        {
-            lane.ChangeLighterID(lighterID);
-        }
+        NewLane();
 
         inside = false;
         Invoke("MoveForester", moveSpeed);
@@ -44,24 +39,30 @@ public class ForesterManager : MonoBehaviour
         {
             if (lanes[activeLane].IsClosed())
             {
-                activeLane = Random.Range(0, lanes.Length);
-                currentPos = 0;
-                Transform newPos = lanes[activeLane].NextPos(currentPos);
-                forester.transform.position = newPos.position;
-                forester.transform.rotation = newPos.rotation;
-
-                foreach (LaneManager lane in lanes)
-                {
-                    lane.OpenLane();
-                }
+                NewLane();
 
                 Invoke("MoveForester", moveSpeed);
             }
             else
             {
+                //forester broke in
                 inside = true;
 
-                MoveForward();
+                forester.SetActive(false);
+
+                currentPos++;
+                Transform newPos = lanes[activeLane].NextPos(currentPos);
+
+                if (stalkerAmount < stalkerList.Length)
+                {
+                    stalkerList[stalkerAmount].transform.position = newPos.position;
+                    stalkerList[stalkerAmount].transform.rotation = newPos.rotation;
+
+                    stalkerList[stalkerAmount].SetActive(true);
+                    stalkerAmount++;
+
+                    Invoke("Respawn", respawnTime);
+                }
             }
         }
     }
@@ -72,5 +73,27 @@ public class ForesterManager : MonoBehaviour
         Transform newPos = lanes[activeLane].NextPos(currentPos);
         forester.transform.position = newPos.position;
         forester.transform.rotation = newPos.rotation;
+    }
+
+    void NewLane()
+    {
+        activeLane = Random.Range(0, lanes.Length);
+        currentPos = 0;
+        Transform newPos = lanes[activeLane].NextPos(currentPos);
+        forester.transform.position = newPos.position;
+        forester.transform.rotation = newPos.rotation;
+
+        foreach (LaneManager lane in lanes)
+        {
+            lane.OpenLane();
+        }
+    }
+
+    void Respawn()
+    {
+        NewLane();
+        forester.SetActive(false);
+        inside = false;
+        Invoke("MoveForester", moveSpeed);
     }
 }

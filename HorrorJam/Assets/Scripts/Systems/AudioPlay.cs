@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlay : MonoBehaviour
+public class FireAlarmManager : MonoBehaviour
 {
-    public static AudioPlay instance;
-    public GameObject[] soundPrefabs;
+    public static FireAlarmManager instance;
+    public bool canActivate=true;
 
     private void Awake()    //setting up singleton
     {
@@ -20,21 +20,17 @@ public class AudioPlay : MonoBehaviour
         }
     }
 
-    public static void PlaySound(int id)
+    public void StartAlarm()
     {
-        GameObject obj = Instantiate(AudioPlay.instance.soundPrefabs[id]);
-        Destroy(obj, 5f);
+		if (canActivate)
+		{
+			canActivate=false;
+			AudioPlay.PlaySound(1,30)
+		}
     }
 
-    public static void PlaySound(int id,Transform pos)
+    private void PlaySound()
     {
-        GameObject obj = Instantiate(AudioPlay.instance.soundPrefabs[id],pos,true);
-        Destroy(obj, 5f);
-    }
-
-    public static void PlaySound(int id, Vector3 pos, Quaternion rotation)
-    {
-        GameObject obj = Instantiate(AudioPlay.instance.soundPrefabs[id], pos,rotation);
-        Destroy(obj, 5f);
+        canActivate=true;
     }
 }
