@@ -6,34 +6,24 @@ public class Timer : MonoBehaviour
 {
     public static bool collected;
     public static bool playing;
-    public float time;
+    public GameObject forester;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        playing = true;
-    }
+    [SerializeField]
+    public float time;
 
     // Update is called once per frame
     void Update()
     {
         //print(collected);
-        if (time > 0 && playing)
+        if (time > 0)
         {
             time -= Time.deltaTime;
         }
-        else if (playing)
+        else
         {
-            if (collected)
-            {
-                print("Win!");
-                //WinLoss.gameWin = true;
-            }
-            else
-            {
-                print("Lose!");
-                //WinLoss.gameLose = true;
-            }
+            forester.SetActive(true);
+            Destroy(gameObject);
         }
+        
     }
 }

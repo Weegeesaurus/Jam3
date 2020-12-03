@@ -30,10 +30,10 @@ public class CrawlerControl : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         controller = GetComponent<Animator>();
 
-        xmax = 47;      // 35
-        zmax = 47;      // 44
-        xmin = 1;     // -48
-        zmin = 1;     // -20
+        xmax = 68;      // 35
+        zmax = 20;      // 44
+        xmin = -60;     // -48
+        zmin = -59;     // -20
 
         time = 0;
     }
@@ -76,7 +76,7 @@ public class CrawlerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(crawler.transform.position, player.transform.position) <= followRadius)
+        if (Vector3.Distance(crawler.transform.position, player.transform.position) <= followRadius && !FireAlarmManager.alarmOn)
         {
             if (playerMoving)
             {
@@ -89,9 +89,9 @@ public class CrawlerControl : MonoBehaviour
                 if (Vector3.Distance(crawler.transform.position, player.transform.position) <= killRadius)
                 {
                     // Uncomment for build
-                    //WinLoss.gameLose = true;
-                    controller.SetTrigger("Attack");
-                    print("Lose!");
+                    WinLoss.gameLose = true;
+                    //controller.SetTrigger("Attack");
+                    //print("Lose!");
                 }
             }
             else

@@ -15,9 +15,11 @@ public class AngelControl : MonoBehaviour
     public float time;
     public Vector3 roamTo;
 
-    [SerializeField]
     public int killRadius;
     public int followRadius;
+    public int visionRadius;
+
+    public AudioSource angelSound;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +31,10 @@ public class AngelControl : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         agent = gameObject.GetComponent<NavMeshAgent>();
 
-        xmax = 47;      // 35
-        zmax = 47;      // 44
-        xmin = 1;     // -48
-        zmin = 1;     // -20
+        xmax = 68;      // 35  47
+        zmax = 20;      // 44  47
+        xmin = -60;     // -48  1
+        zmin = -59;     // -20  1
 
         time = 0;
     }
@@ -63,28 +65,40 @@ public class AngelControl : MonoBehaviour
     {
         RaycastHit hit;
         Physics.Linecast(angel.transform.position, player.transform.position, out hit);
-        print(hit.transform.tag);
-        print(playerVision.isVisible);
-        if (playerVision.isVisible && hit.transform.tag == "Player")
+        //print(hit.transform.tag);
+        //print(playerVision.isVisible);
+        //print(Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius);
+        
+        if (playerVision.isVisible && (hit.transform.tag == "Player" || hit.transform.tag == "door") && Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius)
         {
             roaming = false;
             agent.destination = angel.transform.position;
+            angelSound.mute = true;
             //print("Freezing...");
         }
         else
         {
-            if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && hit.transform.tag == "Player")
+            if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && (hit.transform.tag == "Player" || hit.transform.tag == "door"))
             {
                 //print("Following...");
                 roaming = false;
                 agent.destination = player.transform.position;
+                angelSound.mute = false;
                 //print("Destination: " + agent.destination);
+                if (Vector3.Distance(angel.transform.position, player.transform.position) <= killRadius)
+                {
+                    // Uncomment for build
+                    WinLoss.gameLose = true;
+                    //controller.SetTrigger("Attack");
+                    //print("Lose!");
+                }
             }
             else
             {
 
                 //print("Roaming...");
                 roaming = true;
+                angelSound.mute = false;
             }
 
         }

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 53d95a49f5499ce428b0bd6444ebfc14
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Burton's Nightmare
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6f2c3ddc980a218439a840537cdb543d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

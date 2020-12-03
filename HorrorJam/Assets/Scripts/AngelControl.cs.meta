@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HorrorJam/Assets/ExampleAssets/Nolan's Shtuff/WinLoss.cs.meta
+guid: 040ea5ec77a54c4469f9fb3fe025b19a
+=======
 guid: 2b039d9a38e35d547804a55b13b67d6f
+>>>>>>> Damian:HorrorJam/Assets/Scripts/AngelControl.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
