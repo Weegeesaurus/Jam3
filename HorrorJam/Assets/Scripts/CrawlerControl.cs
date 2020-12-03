@@ -89,9 +89,9 @@ public class CrawlerControl : MonoBehaviour
                 if (Vector3.Distance(crawler.transform.position, player.transform.position) <= killRadius)
                 {
                     // Uncomment for build
-                    //WinLoss.gameLose = true;
-                    controller.SetTrigger("Attack");
-                    print("Lose!");
+                    WinLoss.gameLose = true;
+                    //controller.SetTrigger("Attack");
+                    //print("Lose!");
                 }
             }
             else

@@ -8,6 +8,8 @@ public class Spawn : MonoBehaviour
     public GameObject LeftWing;
     [SerializeField]
     public GameObject RightWing;
+    [SerializeField]
+    public GameObject BasementWing;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +22,10 @@ public class Spawn : MonoBehaviour
             else if(gameObject.name == "rightWing")
             {
                 RightWing.SetActive(true);
+            }
+            else if (gameObject.name == "basementWing")
+            {
+                BasementWing.SetActive(true);
             }
         }
     }

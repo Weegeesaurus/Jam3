@@ -16,6 +16,12 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject winScreen;
 
+    [SerializeField] GameObject enemies;
+    [SerializeField] GameObject foresterTime;
+    [SerializeField] GameObject music;
+
+    public int previous;
+
     //Switch Condition
     public static int screenToggle;
 
@@ -50,19 +56,21 @@ public class CameraMovement : MonoBehaviour
             case 2://Toggles Loss Screen
                 lossScreen.SetActive(true);
                 Time.timeScale = 0f;
+                enemies.SetActive(false);
+                music.SetActive(false);
                 break;
 
             case 3://Toggles Main Menu/Title Screen
                 lossScreen.SetActive(false);
                 winScreen.SetActive(false);
                 titleScreen.SetActive(true);
-                Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
                 break;
 
             case 4://Toggles Win Screen
                 winScreen.SetActive(true);
                 Time.timeScale = 0f;
+                music.SetActive(false);
                 break;
         }
     }
@@ -75,6 +83,7 @@ public class CameraMovement : MonoBehaviour
             pauseMenu.SetActive(false);
             pause = false;
             Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
@@ -82,6 +91,7 @@ public class CameraMovement : MonoBehaviour
             pauseMenu.SetActive(true);
             pause = true;
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -92,7 +102,9 @@ public class CameraMovement : MonoBehaviour
     //Transitions from Pause Screen to Info Screen
     public void ControlsScreen()
     {
+        previous = screenToggle;
         pauseMenu.SetActive(false);
+        titleScreen.SetActive(false);
         screenToggle = 0;
     }
 
@@ -113,9 +125,16 @@ public class CameraMovement : MonoBehaviour
     //Transitions from Info Screen to Pause Screen
     public void ReturnToPause()
     {
-        pauseMenu.SetActive(true);
         infoScreen.SetActive(false);
-        screenToggle = 1;
+        if (previous == 3)
+        {
+            screenToggle = 3;
+        }
+        if (previous == 1)
+        {
+            pauseMenu.SetActive(true);
+            screenToggle = 1;
+        }
     }
 
     public void QuitGame()
@@ -129,5 +148,7 @@ public class CameraMovement : MonoBehaviour
         screenToggle = 1;
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
+        enemies.SetActive(true);
+        foresterTime.SetActive(true);
     }
 }

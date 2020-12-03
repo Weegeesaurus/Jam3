@@ -46,7 +46,7 @@ public class EnemyStalkerController : MonoBehaviour
 
 		if (playerDistance < awareAI)
 		{
-			if (playerDistance < 2f)
+			if (playerDistance < damping)
 			{
 				Chase();
 			}
@@ -56,7 +56,7 @@ public class EnemyStalkerController : MonoBehaviour
 
 		if (playerDistance < deathDistance)   //attacking, if it hits you???
         {
-			//profit???
+            WinLoss.gameLose = true;
         }
 
 
@@ -68,7 +68,6 @@ public class EnemyStalkerController : MonoBehaviour
 	void LookAtPlayer()
 	{
         transform.LookAt(player);
-		//play sound???
 	}
 
 
@@ -84,7 +83,6 @@ public class EnemyStalkerController : MonoBehaviour
 	void Chase()
 	{
 		transform.Translate(Vector3.forward * AIMoveSpeed * Time.deltaTime);
-		//play sound??
 	}
 
 

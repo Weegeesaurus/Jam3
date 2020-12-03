@@ -85,6 +85,13 @@ public class AngelControl : MonoBehaviour
                 agent.destination = player.transform.position;
                 angelSound.mute = false;
                 //print("Destination: " + agent.destination);
+                if (Vector3.Distance(angel.transform.position, player.transform.position) <= killRadius)
+                {
+                    // Uncomment for build
+                    WinLoss.gameLose = true;
+                    //controller.SetTrigger("Attack");
+                    //print("Lose!");
+                }
             }
             else
             {

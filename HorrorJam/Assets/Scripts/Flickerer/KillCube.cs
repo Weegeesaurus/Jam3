@@ -21,8 +21,6 @@ public class KillCube : MonoBehaviour
         //Sets the game in a GAME OVER state if the player is in the room when the lights go out
         if (col.gameObject.tag == "Player")
         {
-            //col.gameObject.transform.position = new Vector3(-1000f, -1000f, -1000f);
-            Debug.Log("GAME OVER");
             WinLoss.gameLose = true;
         }
     }
