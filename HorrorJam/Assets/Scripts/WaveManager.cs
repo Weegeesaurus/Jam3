@@ -23,11 +23,11 @@ public class WaveManager : MonoBehaviour
 
             if (TimeManager.collected)
             {
-                WinLoss.gameWin = true;
+                //WinLoss.gameWin = true;
             }
             else
             {
-                WinLoss.gameLose = true;
+                //WinLoss.gameLose = true;
             }
         }
 

@@ -27,12 +27,12 @@ public class Timer : MonoBehaviour
             if (collected)
             {
                 print("Win!");
-                WinLoss.gameWin = true;
+                //WinLoss.gameWin = true;
             }
             else
             {
                 print("Lose!");
-                WinLoss.gameLose = true;
+                //WinLoss.gameLose = true;
             }
         }
     }

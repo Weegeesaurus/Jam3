@@ -63,25 +63,27 @@ public class AngelControl : MonoBehaviour
     {
         RaycastHit hit;
         Physics.Linecast(angel.transform.position, player.transform.position, out hit);
+        print(hit.transform.tag);
+        print(playerVision.isVisible);
         if (playerVision.isVisible && hit.transform.tag == "Player")
         {
             roaming = false;
             agent.destination = angel.transform.position;
-            print("Freezing...");
+            //print("Freezing...");
         }
         else
         {
             if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && hit.transform.tag == "Player")
             {
-                print("Following...");
+                //print("Following...");
                 roaming = false;
                 agent.destination = player.transform.position;
-                print("Destination: " + agent.destination);
+                //print("Destination: " + agent.destination);
             }
             else
             {
 
-                print("Roaming...");
+                //print("Roaming...");
                 roaming = true;
             }
 

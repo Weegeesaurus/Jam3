@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
-public class FlashlightToggle : MonoBehaviour
+public class FlashlightToggle2 : MonoBehaviour
 {
     public GameObject lightGO; //light gameObject to work with
     private bool isOn = false; //is flashlight on or off?
