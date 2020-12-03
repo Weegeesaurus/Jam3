@@ -19,6 +19,8 @@ public class AngelControl : MonoBehaviour
     public int followRadius;
     public int visionRadius;
 
+    public AudioSource angelSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,26 +69,36 @@ public class AngelControl : MonoBehaviour
         //print(playerVision.isVisible);
         //print(Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius);
         
-        if (playerVision.isVisible && hit.transform.tag == "Player" && Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius)
+        if (playerVision.isVisible && (hit.transform.tag == "Player" || hit.transform.tag == "door") && Vector3.Distance(angel.transform.position, player.transform.position) <= visionRadius)
         {
             roaming = false;
             agent.destination = angel.transform.position;
+            angelSound.mute = true;
             //print("Freezing...");
         }
         else
         {
-            if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && hit.transform.tag == "Player")
+            if (Vector3.Distance(angel.transform.position, player.transform.position) <= followRadius && (hit.transform.tag == "Player" || hit.transform.tag == "door"))
             {
                 //print("Following...");
                 roaming = false;
                 agent.destination = player.transform.position;
+                angelSound.mute = false;
                 //print("Destination: " + agent.destination);
+                if (Vector3.Distance(angel.transform.position, player.transform.position) <= killRadius)
+                {
+                    // Uncomment for build
+                    WinLoss.gameLose = true;
+                    //controller.SetTrigger("Attack");
+                    //print("Lose!");
+                }
             }
             else
             {
 
                 //print("Roaming...");
                 roaming = true;
+                angelSound.mute = false;
             }
 
         }

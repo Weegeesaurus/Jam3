@@ -14,8 +14,7 @@ public class ForesterManager : MonoBehaviour
     public bool inside;
     public int lighterID;
     public float respawnTime;
-
-    private int stalkerAmount=0;
+    private int stalkerAmount = 0;
 
 
     // Start is called before the first frame update
@@ -30,7 +29,7 @@ public class ForesterManager : MonoBehaviour
     // Update is called once per frame
     void MoveForester()
     {
-        if (currentPos<laneSize-2)
+        if (currentPos < laneSize - 2)
         {
             MoveForward();
             Invoke("MoveForester", moveSpeed);
@@ -52,7 +51,6 @@ public class ForesterManager : MonoBehaviour
 
                 currentPos++;
                 Transform newPos = lanes[activeLane].NextPos(currentPos);
-
                 if (stalkerAmount < stalkerList.Length)
                 {
                     stalkerList[stalkerAmount].transform.position = newPos.position;
@@ -61,8 +59,15 @@ public class ForesterManager : MonoBehaviour
                     stalkerList[stalkerAmount].SetActive(true);
                     stalkerAmount++;
 
-                    Invoke("Respawn", respawnTime);
+                    AudioPlay.PlaySound(0, newPos, 60);
+
+
+                    if (stalkerAmount < stalkerList.Length) 
+                    {
+                        Invoke("Respawn", respawnTime);
+                    }
                 }
+
             }
         }
     }
@@ -92,7 +97,8 @@ public class ForesterManager : MonoBehaviour
     void Respawn()
     {
         NewLane();
-        forester.SetActive(false);
+
+        forester.SetActive(true);
         inside = false;
         Invoke("MoveForester", moveSpeed);
     }

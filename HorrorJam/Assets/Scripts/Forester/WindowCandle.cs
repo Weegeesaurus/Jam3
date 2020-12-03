@@ -19,13 +19,12 @@ public class WindowCandle : MonoBehaviour
     }
     public void LightCandle()
     {
-        if (Inventory.CheckInventory(lane.GetLighterID()))
+        if (Inventory.CheckInventory(3))
         {
             lane.CloseLane();
             unlitCandle.SetActive(false);
             litCandle.SetActive(true);
         }
-
     }
     public void SnuffCandle()
     {
