@@ -8,19 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameTitle.unity
     guid: ef711e072e80f2a4093e733675d9ca47
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InfoScreen.unity
     guid: 0d78dc9382c4f504081c11c49ba749ee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/jenna.unity
     guid: 038e5cfd12258904fa9d36259bdfc9f0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: 6664b40c65891f048b257455f2750879
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameComplete.unity
     guid: 348da0d8ccd181a4b86bc5a9d7a06624
+  - enabled: 1
+    path: Assets/Scenes/Cole.unity
+    guid: c74f39b65c80ef04c9528a0e931dfba6
   m_configObjects: {}

@@ -38,7 +38,9 @@ public class CameraMovement : MonoBehaviour
         //Pauses and unpauses game on Escape button
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            TogglePause();
+            if (screenToggle != 3 && screenToggle != 2 && screenToggle != 4) {
+                TogglePause();
+            }
         }
 
         //Handles which screens are active in which game state
@@ -58,6 +60,7 @@ public class CameraMovement : MonoBehaviour
                 Time.timeScale = 0f;
                 enemies.SetActive(false);
                 music.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
                 break;
 
             case 3://Toggles Main Menu/Title Screen
@@ -71,6 +74,7 @@ public class CameraMovement : MonoBehaviour
                 winScreen.SetActive(true);
                 Time.timeScale = 0f;
                 music.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
                 break;
         }
     }
@@ -150,5 +154,6 @@ public class CameraMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         enemies.SetActive(true);
         foresterTime.SetActive(true);
+        BlackoutManager.instance.FadeIn();
     }
 }

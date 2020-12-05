@@ -57,6 +57,7 @@ public class EnemyStalkerController : MonoBehaviour
 		if (playerDistance < deathDistance)   //attacking, if it hits you???
         {
             WinLoss.gameLose = true;
+            AudioPlay.PlaySound(2, 5);
         }
 
 

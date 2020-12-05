@@ -31,15 +31,15 @@ public class PlayerController : MonoBehaviour
             Vector3 _moveDirection = transform.right * moveHorizontal + transform.forward * moveVertical;
             _moveDirection *= moveSpeed;
 
-            if (controller.isGrounded)
-            {
-                yVelocity = 0;
-                if (Input.GetButton("Jump"))
-                {
-                    yVelocity = jumpSpeed;
-                }
+            //if (controller.isGrounded)
+            //{
+            //    yVelocity = 0;
+            //    if (Input.GetButton("Jump"))
+            //    {
+            //        yVelocity = jumpSpeed;
+            //    }
 
-            }
+            //}
             yVelocity -= gravity;
 
             _moveDirection.y = yVelocity;

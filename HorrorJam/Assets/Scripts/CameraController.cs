@@ -19,10 +19,10 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            toggleMouse();
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    toggleMouse();
+        //}
 
         if (Cursor.lockState == CursorLockMode.Locked)
         {
