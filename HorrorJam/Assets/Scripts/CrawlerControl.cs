@@ -92,6 +92,7 @@ public class CrawlerControl : MonoBehaviour
                     WinLoss.gameLose = true;
                     //controller.SetTrigger("Attack");
                     //print("Lose!");
+                    AudioPlay.PlaySound(2, 5);
                 }
             }
             else

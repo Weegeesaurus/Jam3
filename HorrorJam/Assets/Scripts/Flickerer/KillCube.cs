@@ -22,6 +22,7 @@ public class KillCube : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             WinLoss.gameLose = true;
+            AudioPlay.PlaySound(2, 5);
         }
     }
 }
